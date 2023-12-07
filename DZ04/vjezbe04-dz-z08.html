@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filter Array</title>
+</head>
+<body>
+
+<div id="output"></div>
+
+<script>
+function filterArray(inputArray) {
+  var resultArray = [];
+
+  for (var i = 0; i < inputArray.length; i++) {
+    var currentString = inputArray[i];
+
+    if (/[A-Z]/.test(currentString) || currentString.length >= 5) {
+      resultArray.push(currentString);
+    }
+  }
+
+  document.getElementById('output').innerHTML = resultArray.join(', ');
+
+  return resultArray;
+}
+
+var arr = ['Ovo', 'je', 'My', 'prvi', 'komad', 'OF', 'JAVASCRIPT', 'koda', 'Koji', 'je', 'proradio'];
+
+filterArray(arr);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Savršeni brojevi</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    function savrseniBrojevi(doBroja) {
+      document.write("<p>Savršeni brojevi od 1 do " + doBroja + " su:</p>");
+
+      for (var i = 2; i <= doBroja; i++) {
+        if (jeSavrsenBroj(i)) {
+          document.write(i + "<br>");
+        }
+      }
+    }
+
+    function jeSavrsenBroj(broj) {
+      var sum = 1;
+
+      for (var i = 2; i <= Math.sqrt(broj); i++) {
+        if (broj % i === 0) {
+          sum += i;
+
+          var complement = broj / i;
+          if (i !== complement) {
+            sum += complement;
+          }
+        }
+      }
+
+      return sum === broj;
+    }
+
+    savrseniBrojevi(10000);
+  </script>
+</body>
+</html>

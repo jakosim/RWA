@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anonimna funkcija</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    var kvadratIliObavijest = function(x) {
+      if (typeof x === 'number') {
+        return x * x; 
+      } else {
+        return "Obavijest o pogrešci: Nije proslijeđen broj.";
+      }
+    };
+
+    var rezultat1 = kvadratIliObavijest(5);
+    document.write("<p>Rezultat 1: " + rezultat1 + "</p>");
+
+    var rezultat2 = kvadratIliObavijest("Nije broj");
+    document.write("<p>Rezultat 2: " + rezultat2 + "</p>");
+  </script>
+</body>
+</html>

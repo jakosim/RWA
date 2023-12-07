@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Random brojevi</title>
+</head>
+<body>
+  <script type="text/javascript">
+    
+    function randomBrojevi(min, max) {
+      document.write("<p>Pet random brojeva između " + min + " i " + max + " su:</p>");
+
+      for (var i = 0; i < 5; i++) {
+        var randomBroj = Math.floor(Math.random() * (max - min + 1)) + min;
+        document.write(randomBroj + "<br>");
+      }
+    }
+
+    randomBrojevi(1, 1000);
+  </script>
+</body>
+</html>
