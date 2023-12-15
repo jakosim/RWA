@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <script>
+	
+        function calculate(operation) {
+            var operand1=parseFloat(document.getElementById("operand1").value);
+            var operand2=parseFloat(document.getElementById("operand2").value);
+            var result;
+            switch(operation) 
+			{
+                case 'add':
+                    result=operand1+operand2;
+                    break;
+                case 'subtract':
+                    result=operand1-operand2;
+                    break;
+                case 'divide':
+                    result=operand1/operand2;
+                    break;
+                case 'sin':
+                    result=Math.sin(operand1);
+                    break;
+                case 'cos':
+                    result=Math.cos(operand1);
+                    break;
+                case 'tan':
+                    result=Math.tan(operand1);
+                    break;
+                case 'log':
+                    result=Math.log(operand1);
+                    break;
+                case 'log10':
+                    result=Math.log10(operand1);
+                    break;
+                case 'square':
+                    result=Math.pow(operand1,2);
+                    break;
+                case 'cube':
+                    result=Math.pow(operand1,3);
+                    break;
+                case 'power':
+                    result=Math.pow(operand1,operand2);
+                    break;
+                default:
+                    result='Invalid operation';
+            }
+            alert("Rezultat"+result);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="operand1" placeholder="Unesi operand1"><br>
+    <input type="text" id="operand2" placeholder="Unesi operand2"><br>    
+    <button onclick="calculate('add')">Zbrajanje</button>
+    <button onclick="calculate('subtract')">Oduzimanje</button>
+    <button onclick="calculate('divide')">Djeljenje</button><br>
+    <button onclick="calculate('sin')">Sinus</button>
+    <button onclick="calculate('cos')">Kosinus</button>
+    <button onclick="calculate('tan')">Tangens</button><br>
+    <button onclick="calculate('log')">Logaritam</button>
+    <button onclick="calculate('log10')">Logaritam po bazi 10</button><br>
+    <button onclick="calculate('square')">Kvadriranje</button>
+    <button onclick="calculate('cube')">Kubiranje</button>
+    <button onclick="calculate('power')">Potenciranje</button>
+</body>
+</html>

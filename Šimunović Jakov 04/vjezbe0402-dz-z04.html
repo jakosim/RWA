@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocjena</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const forma = document.getElementById('forma');
+            const poljeOcjene = document.getElementById('ocjena');
+            const rezultatParagraf = document.getElementById('rezultat');
+
+            forma.addEventListener('submit', function (event) {
+                event.preventDefault();
+                prikaziOcjeniParagraf();
+            });
+
+            function prikaziOcjeniParagraf() {
+                const ocjena = parseInt(poljeOcjene.value);
+
+                if (!isNaN(ocjena) && ocjena >= 1 && ocjena <= 5) {
+                    rezultatParagraf.innerHTML = `Ocjena: ${ocjena} - ${interpretirajOcjenu(ocjena)}`;
+                } else {
+                    rezultatParagraf.innerHTML = 'Neispravan unos. Molimo unesite ocjenu od 1 do 5.';
+                }
+            }
+
+            function interpretirajOcjenu(ocjena) {
+                switch (ocjena) {
+                    case 1:
+                        return 'Nedovoljan';
+                    case 2:
+                        return 'Dovoljan';
+                    case 3:
+                        return 'Dobar';
+                    case 4:
+                        return 'Vrlo dobar';
+                    case 5:
+                        return 'Odličan';
+                    default:
+                        return '';
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Ocjena</h1>
+    <form id="forma">
+        <label for="ocjena">Unesite ocjenu (1-5):</label>
+        <input type="text" id="ocjena" name="ocjena" required pattern="[1-5]">
+        <button type="submit">Prikaži ocjenu</button>
+    </form>
+    <p id="rezultat"></p>
+</body>
+</html>

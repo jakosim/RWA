@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Izračunaj godine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<form id="godineForma">
+    <label for="dan">Dan (01 do 31)</label>
+    <input type="text" id="dan" pattern="[0-9]{2}" required>
+    <label for="mjesec">Mjesec (01 do 12)</label>
+    <input type="text" id="mjesec" pattern="[0-9]{2}" required>
+    <label for="godina">Godina:</label>
+    <input type="text" id="godina" pattern="[0-9]{4}" required>
+    <input type="button" value="Izračunaj" onclick="izracunajGodine()">
+</form>
+
+<script>
+    function izracunajGodine() {
+        var dan = document.getElementById('dan').value;
+        var mjesec = document.getElementById('mjesec').value;
+        var godina = document.getElementById('godina').value;
+        var rodjendan = new Date(godina, mjesec - 1, dan);
+        var danas = new Date();
+        var razlika = danas.getFullYear() - rodjendan.getFullYear();
+        if (danas.getMonth() < rodjendan.getMonth() || (danas.getMonth() === rodjendan.getMonth() && danas.getDate() < rodjendan.getDate())) {
+            razlika--;
+        }
+        alert('Imate ' + razlika + ' godina');
+    }
+</script>
+</body>
+</html>

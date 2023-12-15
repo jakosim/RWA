@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarulja</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #zarulja {
+            width: 200px;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zarulja</h1>
+    <img id="zarulja" src="zarulja_off_2.png" alt="ugasena zarulja">
+    <button onclick="upaliZarulju()">
+        <img src="on-removebg-preview.png" alt="Uključi zarulju">
+    </button>
+    <button onclick="ugasiZarulju()">
+        <img src="off-removebg-preview.png" alt="Isključi zarulju">
+    </button>
+
+    <script>
+        function upaliZarulju() {
+            var zarulja = document.getElementById("zarulja");
+            zarulja.src = "zarulja_on_2.png";
+            zarulja.alt = "upaljena zarulja";
+        }
+
+        function ugasiZarulju() {
+            var zarulja = document.getElementById("zarulja");
+            zarulja.src = "zarulja_off_2.png";
+            zarulja.alt = "ugasena zarulja";
+        }
+    </script>
+</body>
+</html>

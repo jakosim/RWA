@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aritmetička i Geometrijska Sredina</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('rezultati').innerHTML = calculateAritmeticAndGeometricMean();
+
+            function calculateAritmeticAndGeometricMean() {
+                const input = prompt('Unesite brojeve odvojene zarezom (npr. 1, 4, 16):');
+                const numbers = input.split(',').map(num => parseInt(num.trim(), 10));
+
+                if (numbers.some(isNaN)) {
+                    return 'Uneseni niz nije ispravan. Molimo vas da unesete valjane brojeve.';
+                } else {
+                    const sum = numbers.reduce((acc, num) => acc + num, 0);
+                    const aritmeticka = sum / numbers.length;
+
+                    const product = numbers.reduce((acc, num) => acc * num, 1);
+                    const geometrijska = Math.pow(product, 1 / numbers.length);
+
+                    return `Aritmetička sredina: ${aritmeticka.toFixed(2)}<br>
+                        Geometrijska sredina: ${geometrijska.toFixed(2)}`;
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Izračun Aritmetičke i Geometrijske Sredine</h1>
+    <div id="rezultati"></div>
+</body>
+</html>

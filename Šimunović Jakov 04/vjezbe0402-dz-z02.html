@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promijeni Pozadinu</title>
+    <style>
+        body {
+            transition: background-color 0.5s;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dugme = document.getElementById('promijeniPozadinu');
+            const bojaTekst = document.getElementById('bojaTekst');
+
+            dugme.addEventListener('click', promijeniPozadinu);
+
+            function promijeniPozadinu() {
+                const novaBoja = generirajSlucajnuBoju();
+                document.body.style.backgroundColor = novaBoja;
+                bojaTekst.innerHTML = `Trenutna boja: ${novaBoja}`;
+            }
+
+            function generirajSlucajnuBoju() {
+                const randomBoja = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+                return randomBoja;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Promijeni Pozadinu</h1>
+    <button id="promijeniPozadinu">Promijeni pozadinu</button>
+    <p id="bojaTekst">Trenutna boja: #000000</p>
+</body>
+</html>
